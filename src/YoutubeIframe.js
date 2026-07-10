@@ -267,12 +267,9 @@ const YoutubeIframe = (props, ref) => {
       if (baseUrlOverride) {
         res.baseUrl = baseUrlOverride;
       }
-      if(referrerUrl) {
-        res.referrerUrl = referrerUrl
-      }
-      else {
-        res.referrerUrl = "https://youtube.com"
-      }
+
+      res.referrerUrl = referrerUrl || "https://youtube.com"
+      
       return res;
     }
 

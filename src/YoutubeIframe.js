@@ -33,6 +33,7 @@ const YoutubeIframe = (props, ref) => {
     webViewProps,
     useLocalHTML,
     baseUrlOverride,
+    referrerUrl,
     playbackRate = 1,
     contentScale = 1.0,
     onError = _err => {},
@@ -266,6 +267,9 @@ const YoutubeIframe = (props, ref) => {
       if (baseUrlOverride) {
         res.baseUrl = baseUrlOverride;
       }
+      if(referrerUrl) {
+        res.referrerUrl = referrerUrl
+      }
       return res;
     }
 
@@ -273,7 +277,7 @@ const YoutubeIframe = (props, ref) => {
     const data = ytScript.urlEncodedJSON;
 
     return {uri: base + '?data=' + data};
-  }, [useLocalHTML, contentScale, baseUrlOverride, allowWebViewZoom]);
+  }, [useLocalHTML, contentScale, baseUrlOverride, referrerUrl, allowWebViewZoom]);
 
   return (
     <View style={[{height, width}, viewContainerStyle]}>

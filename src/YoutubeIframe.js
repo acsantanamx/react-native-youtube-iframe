@@ -270,6 +270,9 @@ const YoutubeIframe = (props, ref) => {
       if(referrerUrl) {
         res.referrerUrl = referrerUrl
       }
+      else {
+        res.referrerUrl = "https://youtube.com"
+      }
       return res;
     }
 
